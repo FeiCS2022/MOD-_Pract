@@ -5,7 +5,21 @@ class Person {
         this.requiredConfidence = requiredConfidence,
         this.charisma = charisma
     }
+    convince(member) {
+//random between -2, 2
+
+        let randomVar = Math.floor(Math.random() * 5) - 2
+//
+        let charismaEffect = this.charisma + randomVar;
+
+member.confidence += charismaEffect;
+    }
     discourage(){
+        let randomVar = Math.floor(Math.random() * 5) - 2
+        //
+                let charismaEffect = this.charisma + randomVar;
+        
+        member.confidence -= charismaEffect;
 
     }
 }
@@ -46,13 +60,15 @@ const conviceGroup = () => {
             break;
         }
         //we go first - convice()
-
+        me.convince(friends[i])
         //are they convinced enough?
         //go to next person
 
         //discourage()
+
         //check if we are too discouraged
-        console.log(friends[i])
+      
+
     }
 }
 conviceGroup()
