@@ -14,20 +14,20 @@ class Person {
 
 member.confidence += charismaEffect;
     }
-    discourage(){
+    discourage(meObject){
         let randomVar = Math.floor(Math.random() * 5) - 2
         //
                 let charismaEffect = this.charisma + randomVar;
         
-        member.confidence -= charismaEffect;
+        meObject.confidence -= charismaEffect;
 
     }
 }
 
 
 
-let me = new Person("Albruce", 100, 30, 20);
-
+let me = new Person("Albruce", 10, 30, 20);
+me.trying = true
 
 class FriendGroup {
     constructor() {
@@ -44,10 +44,10 @@ let myFriendGroup = new FriendGroup();
 
 let brandonFriendGroup = new FriendGroup()
 
-myFriendGroup.addFriend("Jared", 10, 60, 20);
-myFriendGroup.addFriend("Sarah", 14, 98, 10);
-myFriendGroup.addFriend("Tara", 21, 81, 15);
-myFriendGroup.addFriend("Darren", 34, 23, 11);
+myFriendGroup.addFriend("Jared", 10, 30, 20);
+myFriendGroup.addFriend("Sarah", 14, 30, 10);
+myFriendGroup.addFriend("Tara", 21, 30, 15);
+myFriendGroup.addFriend("Darren", 12, 30, 11);
 
 console.log(myFriendGroup)
 
@@ -57,7 +57,15 @@ const conviceGroup = () => {
     let friends = myFriendGroup.friends;
     for (let i = 0; i < friends.length; i++) {
         if(me.confidence < me.requiredConfidence) {
+            console.log("GAME OVER", me.confidence)
             break;
+        }
+        let keepLooping = true;
+        while (keepLooping) {
+            me.convince(friends[i]);
+            if(friends[i].confidence >= friends[i].requiredConfidence){
+               console.log(`${me.name} was convinenced!`)
+            }
         }
         //we go first - convice()
         me.convince(friends[i])
@@ -70,6 +78,12 @@ const conviceGroup = () => {
       
 
     }
+if (me.trying = false) {
+    myFriendGroup.goingOnTrip = false;
+} else {
+    myFriendGroup.goingOnTrip = false;
+}
 }
 conviceGroup()
 //create instance
+console.log(myFriendGroup.friends)
