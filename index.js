@@ -36,3 +36,24 @@ myFriendGroup.addFriend("Tara", 21, 81, 15);
 myFriendGroup.addFriend("Darren", 34, 23, 11);
 
 console.log(myFriendGroup)
+
+//loop here
+
+const conviceGroup = () => {
+    let friends = myFriendGroup.friends;
+    for (let i = 0; i < friends.length; i++) {
+        if(me.confidence < me.requiredConfidence) {
+            break;
+        }
+        //we go first - convice()
+
+        //are they convinced enough?
+        //go to next person
+
+        //discourage()
+        //check if we are too discouraged
+        console.log(friends[i])
+    }
+}
+conviceGroup()
+//create instance
